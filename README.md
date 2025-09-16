@@ -1,5 +1,4 @@
 # Conversational AI Platform
-
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
@@ -56,13 +55,15 @@ Conversational-AI-Platform/
 ├── data/
 │   ├── models/             # Modelos treinados
 │   └── datasets/           # Conjuntos de dados
-├── analytics/
-│   ├── analysis.R          # Scripts de análise em R
+├── analytics/              # 📊 Scripts de análise organizados
+│   ├── analytics.R         # Scripts principais de análise em R
 │   └── reports/            # Relatórios gerados
 ├── README.md               # Documentação
 ├── requirements.txt        # Dependências Python
 └── LICENSE                 # Licença MIT
 ```
+
+> ✅ **Atualização da Estrutura**: Os scripts de análise em R foram organizados sob a pasta `analytics/` com o arquivo principal `analytics.R` contendo classes avançadas para análise estatística e visualização de dados.
 
 ## 🚀 Como Usar
 
@@ -95,12 +96,13 @@ python backend/setup_db.py
 python backend/app.py
 ```
 
-5. Acesse `http://localhost:5000` no navegador
+5. Acesse http://localhost:5000 no navegador
 
 ### Configuração da API
 
 ```python
 # Exemplo de configuração
+
 from flask import Flask, request, jsonify
 from models.nlp_processor import NLPProcessor
 
@@ -117,12 +119,14 @@ def chat():
 ## 🧠 Funcionalidades de IA
 
 ### Processamento de Linguagem Natural
+
 - **Análise de Sentimento**: Detecção de emoções em texto
 - **Extração de Entidades**: Identificação de pessoas, lugares, organizações
 - **Classificação de Intenções**: Compreensão do propósito da mensagem
 - **Geração de Respostas**: Criação de respostas contextuais
 
 ### Análise de Dados
+
 ```r
 # Exemplo de análise em R
 library(ggplot2)
@@ -149,6 +153,7 @@ sentiment_analysis <- function(data) {
 ## 🔧 Personalização
 
 ### Adicionando Novos Modelos
+
 ```python
 class CustomNLPModel:
     def __init__(self):
@@ -160,6 +165,7 @@ class CustomNLPModel:
 ```
 
 ### Configurando Temas
+
 ```css
 :root {
     --ai-primary: #667eea;
@@ -208,6 +214,4 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 - LinkedIn: [Gabriel Demetrios Lafis](https://www.linkedin.com/in/gabriel-demetrios-lafis-62197711b)
 
 ---
-
 ⭐ Se este projeto foi útil, considere deixar uma estrela!
-
