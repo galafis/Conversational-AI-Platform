@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Customer Schema",
+  "description": "Schema JSON para validação de dados do dataset de clientes, utilizado em pipelines de dados e validação",
+  "type": "object",
+  "required": [
+    "id",
+    "name",
+    "email",
+    "category",
+    "score"
+  ],
+  "properties": {
+    "id": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Identificador único do cliente"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100,
+      "description": "Nome completo do cliente"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Endereço de e-mail válido do cliente"
+    },
+    "category": {
+      "type": "string",
+      "enum": ["bronze", "silver", "gold", "platinum"],
+      "description": "Categoria do cliente baseada no perfil de consumo"
+    },
+    "score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1000,
+      "description": "Score de crédito ou avaliação do cliente"
+    }
+  },
+  "additionalProperties": false
+}
