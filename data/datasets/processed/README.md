@@ -26,6 +26,16 @@ Este diretório contém datasets que passaram por processos de limpeza, transfor
 - `.h5` / `.hdf5` - Para grandes volumes de dados numéricos
 - `.pkl` / `.pickle` - Para objetos Python complexos
 
+## Nota sobre Formatos
+
+⚠️ **Importante**: Em projetos reais de produção, é altamente recomendado utilizar formatos binários otimizados como:
+
+- **`.parquet`**: Formato colunar comprimido, ideal para analytics e machine learning
+- **`.h5`** / **`.hdf5`**: Para datasets científicos e arrays multidimensionais
+- **`.pkl`** / **`.pickle`**: Para objetos Python complexos e modelos treinados
+
+O arquivo `processed_sample.csv` neste repositório utiliza formato CSV apenas para demonstração e compatibilidade com GitHub. Em ambiente de produção, este mesmo dataset seria armazenado como `processed_sample.parquet` para melhor performance e menor uso de espaço.
+
 ## Exemplos de Uso
 
 ```
