@@ -1,0 +1,211 @@
+# Customer Dataset Metadata
+# Arquivo de metadados padrão para governança de dados do dataset de clientes
+
+# Informações básicas do dataset
+name: customer
+version: "1.0.0"
+schema_version: "2025-09-16"
+
+# Proprietário e responsabilidades
+owner:
+  team: "Data Engineering Team"
+  contact: "data-eng@company.com"
+  responsible: "galafis"
+  backup_contact: "tech-lead@company.com"
+
+# Origem e localização dos dados
+origin:
+  source_system: "CRM Sistema Principal"
+  source_type: "PostgreSQL Database"
+  extraction_method: "ETL Pipeline"
+  api_endpoint: null
+  database:
+    host: "prod-db.company.com"
+    database: "customer_db"
+    schema: "public"
+    table: "customers"
+
+# Frequência e atualização
+update_frequency:
+  interval: "daily"
+  time: "02:00 UTC"
+  timezone: "UTC"
+  business_days_only: false
+  
+last_updated:
+  date: "2025-09-16"
+  time: "15:44:00"
+  timezone: "America/Sao_Paulo"
+  updated_by: "galafis"
+
+# Descrição do dataset
+description:
+  brief: "Dataset contendo informações básicas de clientes incluindo dados pessoais, contato e timestamps de criação"
+  detailed: |
+    Este dataset contém informações essenciais sobre clientes da empresa, incluindo:
+    - Identificadores únicos
+    - Dados pessoais (nome, email)
+    - Informações de contato
+    - Timestamps de criação e atualização
+    - Metadados de auditoria
+    
+    Os dados são extraídos diariamente do sistema CRM principal e utilizados
+    para análises de customer analytics, segmentação e relatórios operacionais.
+
+# Tags e classificação
+tags:
+  - "customer"
+  - "crm"
+  - "personal_data"
+  - "daily_extract"
+  - "production"
+  - "pii"
+  - "gdpr_compliant"
+
+category: "customer_data"
+classification: "confidential"
+sensitivity_level: "high"
+
+# Formato e estrutura
+format:
+  primary: "postgresql_table"
+  exports:
+    - type: "parquet"
+      location: "/data/exports/customer/"
+      compression: "snappy"
+    - type: "csv"
+      location: "/data/exports/customer/csv/"
+      delimiter: ","
+    - type: "json"
+      location: "/data/exports/customer/json/"
+      schema_file: "customer_schema.json"
+
+# Caminhos e localização
+paths:
+  schema_files:
+    json_schema: "data/datasets/schemas/customer_schema.json"
+    ddl: "data/datasets/schemas/customer_ddl.sql"
+    dictionary: "data/datasets/schemas/customer_dictionary.md"
+    metadata: "data/datasets/schemas/customer_metadata.yaml"
+  
+  data_files:
+    raw: "/data/raw/customer/"
+    processed: "/data/processed/customer/"
+    exports: "/data/exports/customer/"
+    backups: "/data/backups/customer/"
+  
+  documentation:
+    readme: "README.md"
+    changelog: "CHANGELOG.md"
+    runbook: "docs/runbooks/customer_pipeline.md"
+
+# Dependências
+dependencies:
+  upstream:
+    - name: "crm_system"
+      type: "database"
+      description: "Sistema CRM fonte dos dados de cliente"
+      criticality: "high"
+      contact: "crm-team@company.com"
+    
+    - name: "user_authentication"
+      type: "service"
+      description: "Sistema de autenticação para validação de usuários"
+      criticality: "medium"
+      contact: "auth-team@company.com"
+  
+  downstream:
+    - name: "customer_analytics"
+      type: "dashboard"
+      description: "Dashboard de análise de clientes"
+      criticality: "medium"
+      contact: "analytics-team@company.com"
+    
+    - name: "marketing_campaigns"
+      type: "pipeline"
+      description: "Pipeline de campanhas de marketing"
+      criticality: "high"
+      contact: "marketing-team@company.com"
+    
+    - name: "customer_segmentation"
+      type: "ml_model"
+      description: "Modelo de segmentação de clientes"
+      criticality: "medium"
+      contact: "ml-team@company.com"
+
+# Qualidade e validação
+quality:
+  validation_rules:
+    - field: "id"
+      rule: "not_null"
+      severity: "error"
+    
+    - field: "id"
+      rule: "unique"
+      severity: "error"
+    
+    - field: "email"
+      rule: "email_format"
+      severity: "warning"
+    
+    - field: "name"
+      rule: "not_empty"
+      severity: "error"
+  
+  sla:
+    availability: "99.5%"
+    freshness: "24 hours"
+    completeness: "95%"
+    accuracy: "98%"
+
+# Governança e compliance
+governance:
+  data_steward: "galafis"
+  business_owner: "Customer Success Team"
+  technical_owner: "Data Engineering Team"
+  
+  compliance:
+    gdpr: true
+    lgpd: true
+    retention_period: "7 years"
+    anonymization_required: false
+    encryption_required: true
+  
+  access_control:
+    classification: "confidential"
+    access_level: "restricted"
+    approved_teams:
+      - "Data Engineering"
+      - "Analytics"
+      - "Customer Success"
+      - "Marketing"
+
+# Monitoramento e alertas
+monitoring:
+  alerts:
+    - type: "freshness"
+      threshold: "36 hours"
+      severity: "warning"
+    
+    - type: "volume"
+      threshold: "10% deviation"
+      severity: "info"
+    
+    - type: "schema_change"
+      severity: "critical"
+  
+  metrics:
+    - "row_count"
+    - "null_percentage"
+    - "duplicate_percentage"
+    - "schema_evolution"
+
+# Histórico de mudanças
+change_log:
+  - version: "1.0.0"
+    date: "2025-09-16"
+    author: "galafis"
+    changes:
+      - "Initial metadata file creation"
+      - "Added comprehensive data governance structure"
+      - "Defined standard metadata template"
