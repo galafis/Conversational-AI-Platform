@@ -1,6 +1,7 @@
 # Conversational AI Platform
 
-![Hero Image](https://via.placeholder.com/1200x400?text=Conversational+AI+Platform)
+![Hero Image](assets/hero_image.webp)
+
 
 ## 🗺️ Diagrama de Arquitetura
 
