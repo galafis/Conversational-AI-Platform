@@ -1,6 +1,11 @@
 # Conversational AI Platform
 
-<!-- HERO IMAGE PLACEHOLDER -->
+![Hero Image](https://via.placeholder.com/1200x400?text=Conversational+AI+Platform)
+
+## 🗺️ Diagrama de Arquitetura
+
+![Diagrama de Arquitetura](assets/architecture_diagram.png)
+
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
