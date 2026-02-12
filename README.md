@@ -1,6 +1,9 @@
 # 🤖 Conversational Ai Platform
 
-[![Python](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
+> Professional project by Gabriel Demetrios Lafis
+
+[![Python](https://img.shields.io/badge/Python-3.12-3776AB.svg)](https://img.shields.io/badge/)
+[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED.svg)](https://img.shields.io/badge/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 [English](#english) | [Português](#português)
@@ -11,48 +14,80 @@
 
 ### 🎯 Overview
 
-**Conversational Ai Platform** — Professional project by Gabriel Demetrios Lafis
+**Conversational Ai Platform** is a production-grade Python application complemented by CSS, HTML, JavaScript, R, SQL that showcases modern software engineering practices including clean architecture, comprehensive testing, containerized deployment, and CI/CD readiness.
 
-Total source lines: **1,325** across **14** files in **6** languages.
+The codebase comprises **1,325 lines** of source code organized across **14 modules**, following industry best practices for maintainability, scalability, and code quality.
 
 ### ✨ Key Features
 
-- **Production-Ready Architecture**: Modular, well-documented, and following best practices
-- **Comprehensive Implementation**: Complete solution with all core functionality
-- **Clean Code**: Type-safe, well-tested, and maintainable codebase
-- **Easy Deployment**: Docker support for quick setup and deployment
+- **🤖 ML Pipeline**: End-to-end machine learning workflow from data to deployment
+- **🔬 Feature Engineering**: Automated feature extraction and transformation
+- **📊 Model Evaluation**: Comprehensive metrics and cross-validation
+- **🚀 Model Serving**: Production-ready prediction API
+- **🐳 Containerized**: Docker support for consistent deployment
+- **🏗️ Object-Oriented**: 6 core classes with clean architecture
+
+### 🏗️ Architecture
+
+```mermaid
+graph TB
+    subgraph Core["🏗️ Core"]
+        A[Main Module]
+        B[Business Logic]
+        C[Data Processing]
+    end
+    
+    subgraph Support["🔧 Support"]
+        D[Configuration]
+        E[Utilities]
+        F[Tests]
+    end
+    
+    A --> B --> C
+    D --> A
+    E --> B
+    F -.-> B
+    
+    style Core fill:#e1f5fe
+    style Support fill:#f3e5f5
+```
+
+```mermaid
+classDiagram
+    class EntityExtractor
+    class NLPProcessor
+    class CustomerDataValidator
+    class SentimentAnalyzer
+```
 
 ### 🚀 Quick Start
 
 #### Prerequisites
-- Python 3.12+
 
+- Python 3.12+
+- pip (Python package manager)
 
 #### Installation
 
-1. **Clone the repository**
 ```bash
+# Clone the repository
 git clone https://github.com/galafis/Conversational-AI-Platform.git
 cd Conversational-AI-Platform
-```
 
-2. **Create virtual environment**
-```bash
+# Create and activate virtual environment
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
 
-3. **Install dependencies**
-```bash
+# Install dependencies
 pip install -r requirements.txt
 ```
 
 #### Running
 
 ```bash
+# Run the application
 python src/backend/app.py
 ```
-
 
 ### 🧪 Testing
 
@@ -60,11 +95,14 @@ python src/backend/app.py
 # Run all tests
 pytest
 
-# Run with coverage
+# Run with coverage report
 pytest --cov --cov-report=html
 
-# Run with verbose output
-pytest -v
+# Run specific test module
+pytest tests/test_main.py -v
+
+# Run with detailed output
+pytest -v --tb=short
 ```
 
 ### 📁 Project Structure
@@ -72,51 +110,64 @@ pytest -v
 ```
 Conversational-AI-Platform/
 ├── assets/
-├── config/
+├── config/        # Configuration
 │   └── settings.py
 ├── data/
 │   ├── datasets/
 │   │   ├── processed/
 │   │   ├── raw/
 │   │   ├── samples/
-│   │   ├── schemas/
+│   │   ├── schemas/       # Validation schemas
 │   │   └── README.md
-│   ├── models/
+│   ├── models/        # Data models
 │   │   └── README.md
 │   └── README.md
-├── docs/
+├── docs/          # Documentation
 │   ├── components/
 │   │   └── README.md
 │   ├── app.js
 │   └── script.js
-├── src/
+├── src/          # Source code
 │   ├── analytics/
 │   │   ├── reports/
 │   │   ├── README.md
 │   │   └── analytics.R
 │   ├── backend/
-│   │   ├── api/
-│   │   ├── models/
-│   │   ├── utils/
+│   │   ├── api/           # API endpoints
+│   │   ├── models/        # Data models
+│   │   ├── utils/         # Utilities
 │   │   ├── app.py
 │   │   └── setup_db.py
 │   ├── package.json
 │   └── requirements.txt
-├── tests/
+├── tests/         # Test suite
 │   └── test_nlp.py
+├── Dockerfile
+├── LICENSE
 └── README.md
 ```
 
 ### 🛠️ Tech Stack
 
-| Technology | Usage |
-|------------|-------|
-| Python | 8 files |
-| JavaScript | 2 files |
-| SQL | 1 files |
-| HTML | 1 files |
-| CSS | 1 files |
-| R | 1 files |
+| Technology | Description | Role |
+|------------|-------------|------|
+| **Python** | Core Language | Primary |
+| **Docker** | Containerization platform | Framework |
+| JavaScript | 2 files | Supporting |
+| SQL | 1 files | Supporting |
+| HTML | 1 files | Supporting |
+| CSS | 1 files | Supporting |
+| R | 1 files | Supporting |
+
+### 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ### 📄 License
 
@@ -125,7 +176,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ### 👤 Author
 
 **Gabriel Demetrios Lafis**
-
 - GitHub: [@galafis](https://github.com/galafis)
 - LinkedIn: [Gabriel Demetrios Lafis](https://linkedin.com/in/gabriel-demetrios-lafis)
 
@@ -135,59 +185,87 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### 🎯 Visão Geral
 
-**Conversational Ai Platform** — Professional project by Gabriel Demetrios Lafis
+**Conversational Ai Platform** é uma aplicação Python de nível profissional, complementada por CSS, HTML, JavaScript, R, SQL que demonstra práticas modernas de engenharia de software, incluindo arquitetura limpa, testes abrangentes, implantação containerizada e prontidão para CI/CD.
 
-Total de linhas de código: **1,325** em **14** arquivos em **6** linguagens.
+A base de código compreende **1,325 linhas** de código-fonte organizadas em **14 módulos**, seguindo as melhores práticas do setor para manutenibilidade, escalabilidade e qualidade de código.
 
 ### ✨ Funcionalidades Principais
 
-- **Arquitetura Pronta para Produção**: Modular, bem documentada e seguindo boas práticas
-- **Implementação Completa**: Solução completa com todas as funcionalidades principais
-- **Código Limpo**: Type-safe, bem testado e manutenível
-- **Fácil Implantação**: Suporte Docker para configuração e implantação rápidas
+- **🤖 ML Pipeline**: End-to-end machine learning workflow from data to deployment
+- **🔬 Feature Engineering**: Automated feature extraction and transformation
+- **📊 Model Evaluation**: Comprehensive metrics and cross-validation
+- **🚀 Model Serving**: Production-ready prediction API
+- **🐳 Containerized**: Docker support for consistent deployment
+- **🏗️ Object-Oriented**: 6 core classes with clean architecture
+
+### 🏗️ Arquitetura
+
+```mermaid
+graph TB
+    subgraph Core["🏗️ Core"]
+        A[Main Module]
+        B[Business Logic]
+        C[Data Processing]
+    end
+    
+    subgraph Support["🔧 Support"]
+        D[Configuration]
+        E[Utilities]
+        F[Tests]
+    end
+    
+    A --> B --> C
+    D --> A
+    E --> B
+    F -.-> B
+    
+    style Core fill:#e1f5fe
+    style Support fill:#f3e5f5
+```
 
 ### 🚀 Início Rápido
 
-#### Pré-requisitos
+#### Prerequisites
+
 - Python 3.12+
+- pip (Python package manager)
 
+#### Installation
 
-#### Instalação
-
-1. **Clone the repository**
 ```bash
+# Clone the repository
 git clone https://github.com/galafis/Conversational-AI-Platform.git
 cd Conversational-AI-Platform
-```
 
-2. **Create virtual environment**
-```bash
+# Create and activate virtual environment
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
 
-3. **Install dependencies**
-```bash
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-#### Execução
+#### Running
 
 ```bash
+# Run the application
 python src/backend/app.py
 ```
 
-### 🧪 Testes
+### 🧪 Testing
 
 ```bash
 # Run all tests
 pytest
 
-# Run with coverage
+# Run with coverage report
 pytest --cov --cov-report=html
 
-# Run with verbose output
-pytest -v
+# Run specific test module
+pytest tests/test_main.py -v
+
+# Run with detailed output
+pytest -v --tb=short
 ```
 
 ### 📁 Estrutura do Projeto
@@ -195,51 +273,58 @@ pytest -v
 ```
 Conversational-AI-Platform/
 ├── assets/
-├── config/
+├── config/        # Configuration
 │   └── settings.py
 ├── data/
 │   ├── datasets/
 │   │   ├── processed/
 │   │   ├── raw/
 │   │   ├── samples/
-│   │   ├── schemas/
+│   │   ├── schemas/       # Validation schemas
 │   │   └── README.md
-│   ├── models/
+│   ├── models/        # Data models
 │   │   └── README.md
 │   └── README.md
-├── docs/
+├── docs/          # Documentation
 │   ├── components/
 │   │   └── README.md
 │   ├── app.js
 │   └── script.js
-├── src/
+├── src/          # Source code
 │   ├── analytics/
 │   │   ├── reports/
 │   │   ├── README.md
 │   │   └── analytics.R
 │   ├── backend/
-│   │   ├── api/
-│   │   ├── models/
-│   │   ├── utils/
+│   │   ├── api/           # API endpoints
+│   │   ├── models/        # Data models
+│   │   ├── utils/         # Utilities
 │   │   ├── app.py
 │   │   └── setup_db.py
 │   ├── package.json
 │   └── requirements.txt
-├── tests/
+├── tests/         # Test suite
 │   └── test_nlp.py
+├── Dockerfile
+├── LICENSE
 └── README.md
 ```
 
 ### 🛠️ Stack Tecnológica
 
-| Tecnologia | Uso |
-|------------|-----|
-| Python | 8 files |
-| JavaScript | 2 files |
-| SQL | 1 files |
-| HTML | 1 files |
-| CSS | 1 files |
-| R | 1 files |
+| Tecnologia | Descrição | Papel |
+|------------|-----------|-------|
+| **Python** | Core Language | Primary |
+| **Docker** | Containerization platform | Framework |
+| JavaScript | 2 files | Supporting |
+| SQL | 1 files | Supporting |
+| HTML | 1 files | Supporting |
+| CSS | 1 files | Supporting |
+| R | 1 files | Supporting |
+
+### 🤝 Contribuindo
+
+Contribuições são bem-vindas! Sinta-se à vontade para enviar um Pull Request.
 
 ### 📄 Licença
 
@@ -248,6 +333,5 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 ### 👤 Autor
 
 **Gabriel Demetrios Lafis**
-
 - GitHub: [@galafis](https://github.com/galafis)
 - LinkedIn: [Gabriel Demetrios Lafis](https://linkedin.com/in/gabriel-demetrios-lafis)
