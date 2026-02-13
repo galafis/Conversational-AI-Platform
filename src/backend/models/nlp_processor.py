@@ -49,6 +49,8 @@ class NLPProcessor:
             >>> print(result)
             Mensagem processada: Estou muito feliz hoje! Sentimento: positivo
         """
+        if message is None:
+            return "Mensagem processada:  Sentimento: neutro"
         sentiment = self.sentiment_analyzer.analyze(message)
         return f"Mensagem processada: {message} Sentimento: {sentiment}"
 

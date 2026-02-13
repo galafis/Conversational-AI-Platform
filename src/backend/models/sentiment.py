@@ -47,6 +47,8 @@ class SentimentAnalyzer:
             >>> print(result)
             positivo
         """
+        if text is None:
+            return "neutro"
         text_lower = text.lower()
         if "bom" in text_lower or "ótimo" in text_lower or "excelente" in text_lower or "feliz" in text_lower or "great" in text_lower or "good" in text_lower or "happy" in text_lower:
             return "positivo"

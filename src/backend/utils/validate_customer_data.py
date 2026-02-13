@@ -2,7 +2,7 @@
 """
 Script de Validação de Dados de Clientes
 
-Este script lê o arquivo customer_sample_1k.csv do diretório data/datasets/samples/
+Este script lê o arquivo customer_sample.csv do diretório data/datasets/samples/
 e valida cada linha contra o schema JSON customer_schema.json do diretório 
 data/datasets/schemas/, exibindo um relatório de linhas válidas/inválidas.
 
@@ -26,7 +26,7 @@ from typing import Dict, Any, List, Tuple
 from datetime import datetime
 
 try:
-    from jsonschema import validate, ValidationError, Draft7Validator
+    from jsonschema import validate, ValidationError, Draft202012Validator
 except ImportError:
     print("ERRO: Biblioteca jsonschema não encontrada.")
     print("Para instalar execute: pip install jsonschema")
@@ -47,7 +47,7 @@ class CustomerDataValidator:
     
     def __init__(self):
         self.base_path = self._get_base_path()
-        self.csv_path = self.base_path / "data" / "datasets" / "samples" / "customer_sample_1k.csv"
+        self.csv_path = self.base_path / "data" / "datasets" / "samples" / "customer_sample.csv"
         self.schema_path = self.base_path / "data" / "datasets" / "schemas" / "customer_schema.json"
         self.schema = None
         self.validator = None
@@ -61,8 +61,8 @@ class CustomerDataValidator:
         for parent in current_path.parents:
             if (parent / "README.md").exists() and (parent / "data").exists():
                 return parent
-        # Se não encontrar, usar caminho relativo a partir do backend/utils
-        return current_path.parents[1]  # Sai de backend/utils para a raiz
+        # Se não encontrar, usar caminho relativo a partir de src/backend/utils
+        return current_path.parents[3]  # utils -> backend -> src -> raiz do projeto
     
     def load_schema(self) -> bool:
         """
@@ -80,7 +80,7 @@ class CustomerDataValidator:
                 self.schema = json.load(f)
                 
             # Criar validador para melhor performance em validações múltiplas
-            self.validator = Draft7Validator(self.schema)
+            self.validator = Draft202012Validator(self.schema)
             
             print(f"✅ Schema carregado com sucesso: {self.schema_path}")
             print(f"   Título: {self.schema.get('title', 'N/A')}")
